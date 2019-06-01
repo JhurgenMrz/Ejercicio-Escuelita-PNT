@@ -18,7 +18,7 @@ public class Fruit extends Product {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	
+	//Sobrescribi el método toString
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

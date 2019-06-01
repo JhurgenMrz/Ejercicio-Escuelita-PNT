@@ -19,6 +19,7 @@ private float liters;
 		this.liters = liters;
 	}
 	
+	//Sobrescribi el método toString
 	@Override
 		public String toString() {
 			// TODO Auto-generated method stub

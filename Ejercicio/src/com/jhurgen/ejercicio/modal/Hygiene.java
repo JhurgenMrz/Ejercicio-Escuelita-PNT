@@ -18,7 +18,7 @@ public class Hygiene extends Product{
 	public void setContent(int content) {
 		this.content = content;
 	}
-	
+	//Sobrescribi el método toString
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

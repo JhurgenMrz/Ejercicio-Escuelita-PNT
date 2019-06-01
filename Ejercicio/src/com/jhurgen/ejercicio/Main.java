@@ -17,16 +17,19 @@ public class Main {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//Carga y muestra todos los productos
+		showProductsList();
+		System.out.println("==============================================");
 		
-		showProductList();
-		System.out.println("==========================");
+		//Método de precio maximo
 		showMaxPrice();
+		//Método de precio minimo
 		showMinPrice();
 		
 	}
 	
 	
-	public static void showProductList() {
+	public static void showProductsList() {
 		
 		//Carga y muestra los objetos de tipo Bebidas
 		showDrinks();
@@ -50,12 +53,12 @@ public class Main {
 	public static void showHygiene() {
 		hygiene.add(new Hygiene("Shampoo Sedal", 19, 500));
 		for (int i = 0; i < hygiene.size(); i++) {
-			System.out.println(hygiene.get(i));
+			System.out.println(hygiene.get(i).toString());
 		}
 	}
 	
 	public static void showFruts() {
-		fruits.add(new Fruit("Frutilla", 64, "kilo"));
+		fruits.add(new Fruit("Frutillas", 64, "kilo"));
 		for (int i = 0; i < fruits.size(); i++) {
 			System.out.println(fruits.get(i));
 		}
@@ -63,11 +66,13 @@ public class Main {
 	
 	public static void showMaxPrice() {
 		
+		//Inicializo objetos vacios;
 		Drink maxDrink = new Drink("", 0, 0);
 		Fruit maxFruit = new Fruit("", 0, "");
 		Hygiene maxHygiene = new Hygiene("", 0, 0);
 		
-		
+		//Recorro todas las colecciones y voy guardando el objeto con el precio mayor
+		//Frutas
 		if(fruits.size()>1) {
 			for (int j = 0; j <= (fruits.size()-1); j++) {
 				int resultF = fruits.get(j).compareTo(fruits.get(j+1));
@@ -83,7 +88,7 @@ public class Main {
 			maxFruit = fruits.get(0);
 		}
 		
-		
+		//Higiene
 		if(hygiene.size()>1) {
 			for (int k = 0; k < (hygiene.size()-1); k++) {
 				int resultH = hygiene.get(k).compareTo(hygiene.get(k+1));
@@ -98,7 +103,7 @@ public class Main {
 			maxHygiene = hygiene.get(0);
 		}
 		
-		
+		//Bebidas
 		if(drinks.size()>1) {
 			for (int i = 0; i < (drinks.size()-1); i++) {		
 				int resultD = drinks.get(i).compareTo(drinks.get(i+1));
@@ -115,11 +120,13 @@ public class Main {
 		}
 		
 		
+		//Acá comparo los 3 objetos con los precios mayores en sus respectivas colecciones
+		
 		if((maxDrink.compareTo(maxHygiene)) == 1) {
 			if((maxDrink.compareTo(maxFruit)) ==1) {
 				System.out.println("Producto más caro: "+maxDrink.getName());
 			}else {
-				System.out.println("Producto más caro "+maxFruit.getName());
+				System.out.println("Producto más caro: "+maxFruit.getName());
 			}
 			
 		}else if(maxHygiene.compareTo(maxFruit) == 1){
@@ -131,6 +138,7 @@ public class Main {
 		
 	}
 
+	//Éste es igual al maxPrice solo que ahora usando el compareTo con el -1 (Negativo)
 	public static void showMinPrice() {
 		Drink minDrink = new Drink("", 0, 0);
 		Fruit minFruit = new Fruit("", 0, "");
@@ -180,6 +188,8 @@ public class Main {
 		}else {
 			minDrink = drinks.get(0);
 		}
+		
+		//Y aca vuelvo a comparar entre los 3 objetos con menor precio
 		
 		if((minDrink.compareTo(minHygiene)) == -1) {
 			if((minDrink.compareTo(minFruit)) == -1) {

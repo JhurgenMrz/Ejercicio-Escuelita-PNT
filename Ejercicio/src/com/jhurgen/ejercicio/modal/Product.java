@@ -1,6 +1,6 @@
 package com.jhurgen.ejercicio.modal;
 
-public class Product {
+public class Product implements Comparable<Product> {
 	
 	private int id;
 	private String name;
@@ -29,6 +29,21 @@ public class Product {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	@Override
+	public int compareTo(Product o) {
+		// TODO Auto-generated method stub
+		if(this.price>o.price) {
+			return 1;
+		}
+		if(this.price< o.price) {
+			return -1;
+		}
+		else{
+			return 0;	
+		}
+		
+		
 	}
 	
 	
